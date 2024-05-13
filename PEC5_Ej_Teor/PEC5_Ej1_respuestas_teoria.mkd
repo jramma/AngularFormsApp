@@ -59,3 +59,5 @@ Aquí están los principales estados que puedes encontrar en un formulario dirig
 6. **invalid**: Este es el estado opuesto a `valid`. Es verdadero (`true`) si el campo no ha pasado al menos una de sus validaciones.
 
 Puedes acceder a estos estados en tu template utilizando la directiva `ngModel`. Por ejemplo, si tienes un campo de entrada con `ngModel` asignado a `nombre`, puedes acceder al estado `touched` de ese campo con `nombre.touched`.
+
+d) **¿Qué ventajas aportan los FormGroup en la composición de formularios?**
