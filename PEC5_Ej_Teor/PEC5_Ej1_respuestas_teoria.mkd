@@ -16,4 +16,27 @@ Las principales diferencias entre los formularios dirigidos por template (Templa
 
 6. **Pruebas unitarias**: Los formularios reactivos son más fáciles de probar en comparación con los formularios dirigidos por template debido a que los datos y la lógica de validación se manejan en el componente de la clase.
 
-Espero que esta respuesta sea útil para entender las diferencias entre los formularios dirigidos por template y los formularios reactivos en Angular.
+b) ¿Qué son, para qué sirven y cómo se utilizan las directivas ngModel y
+ngModelChange?
+
+`ngModel` y `ngModelChange` son directivas proporcionadas por Angular para facilitar el trabajo con formularios.
+
+1. **ngModel**: Es una directiva que implementa el enlace de datos bidireccional (two-way data binding). Esto significa que vincula el valor de un elemento de entrada HTML (como un campo de texto) a una propiedad en el modelo de datos, y viceversa. Cuando el valor del elemento de entrada cambia, la propiedad del modelo de datos también cambia. Del mismo modo, si la propiedad del modelo de datos cambia, el valor del elemento de entrada también cambia.
+
+   Para usar `ngModel`, necesitas importar el módulo `FormsModule` en tu módulo de aplicación. Aquí tienes un ejemplo de cómo se usa `ngModel`:
+
+   ```html
+   <input [(ngModel)]="nombre" />
+   ```
+
+   En este ejemplo, `nombre` es una propiedad en tu componente de clase. Cualquier cambio en el campo de entrada se reflejará en la propiedad `nombre`, y cualquier cambio en la propiedad `nombre` se reflejará en el campo de entrada.
+
+2. **ngModelChange**: Es un evento que se dispara cada vez que el valor del modelo cambia debido a la interacción del usuario con el campo de entrada. Puedes usar `ngModelChange` para realizar acciones cada vez que el valor del modelo cambia.
+
+   Aquí tienes un ejemplo de cómo se usa `ngModelChange`:
+
+   ```html
+   <input [(ngModel)]="nombre" (ngModelChange)="hacerAlgo($event)" />
+   ```
+
+   En este ejemplo, `hacerAlgo` es un método en tu componente de clase que se llamará cada vez que el valor del modelo cambie. `$event` es una variable que contiene el nuevo valor del modelo.
