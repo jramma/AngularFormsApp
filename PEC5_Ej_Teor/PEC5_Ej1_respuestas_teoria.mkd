@@ -1,0 +1,19 @@
+# Ejercicio 1
+
+a) **¿Cuáles son las principales diferencias entre formularios dirigidos por template y formularios reactivos?**
+
+Las principales diferencias entre los formularios dirigidos por template (Template-Driven Forms) y los formularios reactivos (Reactive Forms) en Angular son:
+
+1. **Enfoque de diseño**: Los formularios dirigidos por template son más simples y se utilizan para crear formularios básicos, mientras que los formularios reactivos son más robustos y se utilizan para crear formularios más complejos y dinámicos.
+
+2. **Manejo de datos**: En los formularios dirigidos por template, los datos se manejan en el template, mientras que en los formularios reactivos, los datos se manejan en el componente de la clase.
+
+3. **Validación**: En los formularios dirigidos por template, la validación se realiza en el template utilizando directivas, mientras que en los formularios reactivos, la validación se realiza en el componente de la clase utilizando funciones.
+
+4. **Mutabilidad**: Los formularios dirigidos por template son mutables, lo que significa que los cambios en el formulario pueden afectar directamente al modelo de datos. Por otro lado, los formularios reactivos son inmutables, lo que significa que cada cambio en el formulario da lugar a un nuevo estado del modelo de datos.
+
+5. **Escalabilidad**: Los formularios reactivos son más escalables que los formularios dirigidos por template debido a su naturaleza inmutable y a su manejo de datos en el componente de la clase.
+
+6. **Pruebas unitarias**: Los formularios reactivos son más fáciles de probar en comparación con los formularios dirigidos por template debido a que los datos y la lógica de validación se manejan en el componente de la clase.
+
+Espero que esta respuesta sea útil para entender las diferencias entre los formularios dirigidos por template y los formularios reactivos en Angular.
