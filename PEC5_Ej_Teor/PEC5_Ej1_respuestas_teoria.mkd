@@ -16,8 +16,7 @@ Las principales diferencias entre los formularios dirigidos por template (Templa
 
 6. **Pruebas unitarias**: Los formularios reactivos son más fáciles de probar en comparación con los formularios dirigidos por template debido a que los datos y la lógica de validación se manejan en el componente de la clase.
 
-b) ¿Qué son, para qué sirven y cómo se utilizan las directivas ngModel y
-ngModelChange?
+b) **¿Qué son, para qué sirven y cómo se utilizan las directivas ngModel y ngModelChange?**
 
 `ngModel` y `ngModelChange` son directivas proporcionadas por Angular para facilitar el trabajo con formularios.
 
@@ -40,3 +39,23 @@ ngModelChange?
    ```
 
    En este ejemplo, `hacerAlgo` es un método en tu componente de clase que se llamará cada vez que el valor del modelo cambie. `$event` es una variable que contiene el nuevo valor del modelo.
+
+c) **¿Qué son, cuáles son y para qué sirven los estados en los formularios dirigidos por templates?**
+
+Los estados en los formularios dirigidos por templates en Angular son propiedades que nos permiten conocer el estado actual de un formulario o de un campo de formulario. Estos estados pueden ser útiles para proporcionar retroalimentación visual al usuario, habilitar o deshabilitar botones, realizar validaciones, entre otras cosas.
+
+Aquí están los principales estados que puedes encontrar en un formulario dirigido por templates:
+
+1. **touched**: Este estado se vuelve verdadero (`true`) una vez que el campo ha sido visitado (es decir, ha recibido el foco). Se utiliza comúnmente para saber si un campo ha sido tocado por el usuario.
+
+2. **untouched**: Este es el estado opuesto a `touched`. Es verdadero (`true`) si el campo no ha sido visitado.
+
+3. **pristine**: Este estado es verdadero (`true`) si el valor del campo no ha cambiado desde que se inicializó. Se utiliza comúnmente para saber si un campo ha sido modificado.
+
+4. **dirty**: Este es el estado opuesto a `pristine`. Es verdadero (`true`) si el valor del campo ha cambiado desde que se inicializó.
+
+5. **valid**: Este estado es verdadero (`true`) si el campo ha pasado todas sus validaciones. Se utiliza comúnmente para saber si un campo es válido.
+
+6. **invalid**: Este es el estado opuesto a `valid`. Es verdadero (`true`) si el campo no ha pasado al menos una de sus validaciones.
+
+Puedes acceder a estos estados en tu template utilizando la directiva `ngModel`. Por ejemplo, si tienes un campo de entrada con `ngModel` asignado a `nombre`, puedes acceder al estado `touched` de ese campo con `nombre.touched`.
