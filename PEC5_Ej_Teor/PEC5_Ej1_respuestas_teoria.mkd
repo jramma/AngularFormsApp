@@ -61,3 +61,17 @@ Aquí están los principales estados que puedes encontrar en un formulario dirig
 Puedes acceder a estos estados en tu template utilizando la directiva `ngModel`. Por ejemplo, si tienes un campo de entrada con `ngModel` asignado a `nombre`, puedes acceder al estado `touched` de ese campo con `nombre.touched`.
 
 d) **¿Qué ventajas aportan los FormGroup en la composición de formularios?**
+
+Los `FormGroup` en Angular son una parte clave de los formularios reactivos y proporcionan varias ventajas para la composición de formularios:
+
+1. **Agrupación de campos de formulario**: `FormGroup` permite agrupar varios campos de formulario en un solo objeto, lo que facilita el manejo de los valores de los campos, las validaciones y los estados.
+
+2. **Validación a nivel de grupo**: Con `FormGroup`, puedes aplicar validaciones a todo el grupo de campos de formulario, no solo a campos individuales. Esto es útil cuando tienes validaciones que dependen de más de un campo.
+
+3. **Manejo de estado**: `FormGroup` mantiene el estado de sus controles hijos, lo que te permite comprobar si un grupo de campos es válido, ha sido modificado, ha sido visitado, etc.
+
+4. **Estructura de formulario dinámica**: `FormGroup` te permite crear una estructura de formulario dinámica al permitirte agregar o quitar controles de formulario en tiempo de ejecución.
+
+5. **Facilita las pruebas**: Como `FormGroup` maneja los datos y las validaciones en el componente de la clase, hace que las pruebas sean más fáciles y predecibles.
+
+En resumen, `FormGroup` proporciona una forma poderosa y flexible de trabajar con formularios en Angular, especialmente cuando se trata de formularios complejos y dinámicos.
