@@ -28,3 +28,25 @@
 | `Validators.composeAsync(validators: AsyncValidatorFn[])` | Crea un validador asíncrono que consta de una serie de validadores asíncronos. |
 
 Estos validadores se pueden utilizar en formularios reactivos para garantizar que los datos introducidos por el usuario cumplen con ciertos criterios antes de ser procesados o almacenados.
+
+# ¿Qué son, cuáles son y para qué sirven los estados en los formularios reactivos?
+
+Los estados en los formularios reactivos de Angular son propiedades que nos permiten conocer el estado actual de un formulario o de un campo de formulario. Estos estados son útiles para controlar la lógica de la aplicación, como mostrar mensajes de error, habilitar o deshabilitar botones, entre otros.
+
+Los principales estados de los formularios reactivos en Angular son:
+
+- **valid**: Este estado indica si el campo de formulario o el formulario completo ha pasado todas las validaciones. Si todos los campos son válidos, `form.valid` será `true`, de lo contrario, será `false`.
+
+- **invalid**: Este es el opuesto al estado `valid`. Si algún campo del formulario no ha pasado las validaciones, `form.invalid` será `true`.
+
+- **pristine**: Este estado indica si el usuario ha interactuado con el campo de formulario. Si el usuario no ha interactuado con el campo de formulario, `control.pristine` será `true`.
+
+- **dirty**: Este es el opuesto al estado `pristine`. Si el usuario ha interactuado con el campo de formulario, `control.dirty` será `true`.
+
+- **touched**: Este estado indica si el campo de formulario ha sido visitado. Si el usuario ha visitado el campo de formulario, `control.touched` será `true`.
+
+- **untouched**: Este es el opuesto al estado `touched`. Si el usuario no ha visitado el campo de formulario, `control.untouched` será `true`.
+
+- **pending**: Este estado indica que la validación del campo de formulario está en proceso, por ejemplo, si estás realizando una validación asíncrona.
+
+Estos estados se pueden utilizar en la plantilla HTML para controlar la visualización de elementos en la interfaz de usuario, como mensajes de error, utilizando directivas como `*ngIf`.
