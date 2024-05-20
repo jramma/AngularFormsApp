@@ -1,15 +1,13 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { CommonModule } from '@angular/common';
-import { ArticleItemComponent } from './article-item/article-item.component';
-import { ArticleListComponent } from './article-list/article-list.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { RouterOutlet } from '@angular/router';
+
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [NavbarComponent, CommonModule, RouterOutlet, ArticleItemComponent, ArticleListComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
+  styleUrls: ['./app.component.css'],
+  imports:[NavbarComponent, RouterOutlet],
+  standalone: true
 })
 export class AppComponent {
   title = 'ecommerce';
@@ -21,11 +19,3 @@ export class AppComponent {
     quantityInCart: 0,
   }));
 }
-
-type Article = {
-  name: string;
-  imageUrl: string;
-  price: number;
-  isOnSale: boolean;
-  quantityInCart: number;
-};
