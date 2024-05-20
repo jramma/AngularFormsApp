@@ -5,14 +5,15 @@ import {
   ReactiveFormsModule,
   FormGroup,
   Validators,
+  AbstractControl,
 } from '@angular/forms';
 
 @Component({
   selector: 'app-article-new-reactive',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
-    templateUrl: './article-new-reactive.component.html',
-  styleUrl: './article-new-reactive.component.css'
+  templateUrl: './article-new-reactive.component.html',
+  styleUrl: './article-new-reactive.component.css',
 })
 export class ArticleNewReactiveComponent {
   article: FormGroup;
@@ -21,9 +22,15 @@ export class ArticleNewReactiveComponent {
 
   constructor(private fb: FormBuilder) {
     this.article = this.fb.group({
-      name: ['', [Validators.required, Validators.minLength(3)]],
-      price: ['', [Validators.required, Validators.min(0)]],
-      imageUrl: ['', [Validators.required, Validators.pattern('(https?://.*\.(?:png|jpg))')]],
+      name: [
+        '',
+        [Validators.required, Validators.minLength(3), NameArticleValidator],
+      ],
+      price: ['', [Validators.required, Validators.min(0.1)]],
+      imageUrl: [
+        '',
+        [Validators.required, Validators.pattern('(https?://.*.(?:png|jpg))')],
+      ],
       isOnSale: [false],
     });
   }
@@ -46,7 +53,19 @@ export class ArticleNewReactiveComponent {
       console.log(this.article.value);
       this.formError = null;
     } else {
-      this.formError = 'Por favor, corrija los errores en el formulario.';
+      if (this.name && this.name.errors && this.name.errors['forbiddenName']) {
+        this.formError =
+          'El nombre del artículo no puede ser Prueba, Test, Mock, o Fake.';
+      } else {
+        this.formError = 'Por favor, corrija los errores en el formulario.';
+      }
     }
   }
+}
+export function NameArticleValidator(
+  control: AbstractControl
+): { [key: string]: any } | null {
+  const forbiddenNames = ['Prueba', 'Test', 'Mock', 'Fake'];
+  const isForbiddenName = forbiddenNames.includes(control.value);
+  return isForbiddenName ? { forbiddenName: { value: control.value } } : null;
 }
