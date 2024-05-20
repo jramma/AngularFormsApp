@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './article-list.component.css',
 })
 export class ArticleListComponent {
-  articles: Article[] = Array.from({ length: 100 }, (_, i) => ({
+  articles: Article[] = Array.from({ length: 9 }, (_, i) => ({
     name: `Artículo ${i + 1}`,
     imageUrl: `https://picsum.photos/seed/${i + 1}/200`,
     price: +(Math.random() * 49 + 1).toFixed(2),

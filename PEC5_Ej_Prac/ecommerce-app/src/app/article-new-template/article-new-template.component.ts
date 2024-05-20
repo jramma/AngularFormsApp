@@ -1,48 +1,32 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import {
-  FormBuilder,
-  ReactiveFormsModule,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
+
 @Component({
   selector: 'app-article-new-template',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './article-new-template.component.html',
   styleUrl: './article-new-template.component.css',
 })
 export class ArticleNewTemplateComponent {
-  article: FormGroup;
-  submitted = false;
+  name: string | undefined;
+  price: number | undefined;
+  imageUrl: string | undefined;
+  isOnSale: boolean | undefined;
+  submitted: boolean = false;
   formError: string | null = null;
 
-  constructor(private fb: FormBuilder) {
-    this.article = this.fb.group({
-      name: ['', [Validators.required, Validators.minLength(3)]],
-      price: ['', [Validators.required, Validators.min(0)]],
-      imageUrl: ['', [Validators.required, Validators.pattern('(https?://.*\.(?:png|jpg))')]],
-      isOnSale: [false],
-    });
-  }
-
-  get name() {
-    return this.article.get('name');
-  }
-
-  get price() {
-    return this.article.get('price');
-  }
-
-  get imageUrl() {
-    return this.article.get('imageUrl');
-  }
-
-  onSubmit() {
+  onSubmit(form: NgForm): void {
     this.submitted = true;
-    if (this.article.valid) {
-      console.log(this.article.value);
+    if (form.valid) {
+      const formValue = {
+        name: this.name,
+        price: this.price,
+        imageUrl: this.imageUrl,
+        isOnSale: this.isOnSale,
+      };
+      console.log(formValue);
       this.formError = null;
     } else {
       this.formError = 'Por favor, corrija los errores en el formulario.';
