@@ -1,5 +1,4 @@
-<!-- Importante poner .value en ngModel pq en .ts hemos definido un objeto
-que daría error en placeholder -->
+
 
 <h2 class="w-full flex justify-center text-3xl p-12">
   No reactivo
@@ -17,7 +16,7 @@ que daría error en placeholder -->
         type="text"
         required
         minlength="3"
-        [(ngModel)]="name.value"
+        [(ngModel)]="article.name"
         name="name"
         #name="ngModel"
         class="mt-1 block w-full p-2 border border-gray-300 rounded-md"
@@ -42,7 +41,7 @@ que daría error en placeholder -->
         type="number"
         required
         min="0"
-        [(ngModel)]="price"
+        [(ngModel)]="article.price"
         name="price"
         #price="ngModel"
         class="mt-1 block w-full p-2 border border-gray-300 rounded-md"
@@ -52,7 +51,7 @@ que daría error en placeholder -->
       *ngIf="price.invalid && (price.dirty || price.touched || submitted)"
       class="text-red-500 text-sm"
     >
-      <div *ngIf="price.errors?.['required']">El precio es requerido.</div>
+      <div *ngIf="price.errors?.['required']">El precio debe ser numérico.</div>
       <div *ngIf="price.errors?.['min']">El precio no puede ser negativo.</div>
     </div>
   </div>
@@ -65,7 +64,7 @@ que daría error en placeholder -->
         type="text"
         required
         pattern="https?://.*\.(?:png|jpg)"
-        [(ngModel)]="imageUrl.value"
+        [(ngModel)]="article.imageUrl"
         name="imageUrl"
         #imageUrl="ngModel"
         class="mt-1 block w-full p-2 border border-gray-300 rounded-md"
@@ -91,7 +90,7 @@ que daría error en placeholder -->
       ¿Está en venta?
       <input
         type="checkbox"
-        [(ngModel)]="isOnSale"
+        [(ngModel)]="article.isOnSale"
         name="isOnSale"
         class="ml-2 cursor-pointer"
       />

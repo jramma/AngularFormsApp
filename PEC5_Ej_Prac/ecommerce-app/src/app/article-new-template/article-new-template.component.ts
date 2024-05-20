@@ -10,23 +10,19 @@ import { FormsModule, NgForm } from '@angular/forms';
   styleUrl: './article-new-template.component.css',
 })
 export class ArticleNewTemplateComponent {
-  name: string | undefined;
-  price: number | undefined;
-  imageUrl: string | undefined;
-  isOnSale: boolean | undefined;
+  article = {
+    name: '',
+    price: 0,
+    imageUrl: '',
+    isOnSale: false
+  };
   submitted: boolean = false;
   formError: string | null = null;
 
   onSubmit(form: NgForm): void {
     this.submitted = true;
     if (form.valid) {
-      const formValue = {
-        name: this.name,
-        price: this.price,
-        imageUrl: this.imageUrl,
-        isOnSale: this.isOnSale,
-      };
-      console.log(formValue);
+      console.log(this.article);
       this.formError = null;
     } else {
       this.formError = 'Por favor, corrija los errores en el formulario.';
