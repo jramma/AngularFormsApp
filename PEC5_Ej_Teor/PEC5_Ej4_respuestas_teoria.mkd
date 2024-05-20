@@ -1,0 +1,30 @@
+# ¿Qué son, para qué sirven y cómo se utilizan FormControl, FormGroup y FormBuilder?
+
+## FormControl
+
+**FormControl** es una clase en Angular que se utiliza para rastrear el valor y el estado de validación de un campo de formulario individual. Puede manejar cualquier tipo de control de formulario, como entradas de texto, casillas de verificación y selectores. Para usarlo, primero debes importarlo desde `@angular/forms`. Luego, puedes crear una instancia de FormControl y asignarla a un campo de formulario en tu componente.
+
+## FormGroup
+
+**FormGroup** es una clase que agrupa múltiples instancias de FormControl, permitiendo manejar y validar múltiples campos de formulario como una sola unidad. Un FormGroup puede contener otros FormGroup anidados y FormArray. Para usarlo, también necesitas importarlo desde `@angular/forms`. Puedes crear un FormGroup para agrupar varios FormControl.
+
+## FormBuilder
+
+**FormBuilder** es un servicio en Angular que proporciona métodos convenientes para crear instancias de FormControl y FormGroup. Facilita la creación de formularios reactivos con una sintaxis más limpia y concisa. Para usar FormBuilder, necesitas inyectar el servicio FormBuilder en tu componente y usarlo para crear instancias de FormGroup y FormControl de una manera más concisa.
+
+#  Busca en la página oficial de Angular (o utiliza un recurso de O’Reilly) en el que se especifiquen todos los validadores que incluye Angular para ser utilizados en los formularios reactivos. Construye una tabla de resumen de estos.
+
+
+| Validador | Descripción |
+| --- | --- |
+| `Validators.required` | Valida que el campo de formulario no esté vacío. |
+| `Validators.requiredTrue` | Valida que el valor del campo de formulario sea `true`. |
+| `Validators.email` | Valida que el valor del campo de formulario sea un correo electrónico válido. |
+| `Validators.minLength(length: number)` | Valida que la longitud del valor del campo de formulario sea al menos `length`. |
+| `Validators.maxLength(length: number)` | Valida que la longitud del valor del campo de formulario no sea mayor que `length`. |
+| `Validators.pattern(pattern: string|RegExp)` | Valida que el valor del campo de formulario coincida con el patrón de expresión regular proporcionado. |
+| `Validators.nullValidator` | Un validador que realiza ninguna operación. |
+| `Validators.compose(validators: ValidatorFn[])` | Crea un validador que consta de una serie de validadores. |
+| `Validators.composeAsync(validators: AsyncValidatorFn[])` | Crea un validador asíncrono que consta de una serie de validadores asíncronos. |
+
+Estos validadores se pueden utilizar en formularios reactivos para garantizar que los datos introducidos por el usuario cumplen con ciertos criterios antes de ser procesados o almacenados.
